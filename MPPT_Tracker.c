@@ -244,7 +244,8 @@ void main(void)
                                             // Destination array address
   DMA0SZ = 0x03;                            // 3 conversions
   DMA0CTL = DMADT_4 + DMADSTINCR_3 + DMAEN + DMAIE;
-
+  //This is the real "main" loop. It basically does the startup sweep, goes to the best duty cycle, and then
+  //Preturbs and observes until the end of time.
   for (;;) {
 	doSweep();
 	TD0CCR2 = bestDuty;
